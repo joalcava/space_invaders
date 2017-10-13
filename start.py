@@ -1,4 +1,8 @@
-SCREEN_SIZE = (800, 600)
+#! /usr/bin/python3
+
+from game import *
+
 
 if __name__ == '__main__':
-    pass
+    space_invaders = SpaceInvaders()
+    space_invaders.start()

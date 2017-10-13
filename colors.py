@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 class Colors:
     """Define las constantes correspondientes a los colores mas usados"""
 
