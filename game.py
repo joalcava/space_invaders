@@ -44,7 +44,24 @@ class SpaceInvaders():
     def __play_game(self):
         clock = pygame.time.Clock()
         last_bullet = PlayerBullet((self.WIDE, self.HEIGHT), (self.WIDE, self.HEIGHT))
+        last_invader_bullet = InvaderBullet((self.WIDE, self.HEIGHT), (self.WIDE, self.HEIGHT))
+        wait_time = None
+        start = None
         while not self.END:
+            
+            if wait_time == None:
+                wait_time = random.uniform(0.5, 2)
+                start = pygame.time.get_ticks()
+            elapsed_time = (pygame.time.get_ticks()-start)/1000
+            if elapsed_time > wait_time:
+                if len(self.ginvaders.sprites())-1  > 0:
+                    rand = random.randint(0, len(self.ginvaders.sprites()) -1)
+                    x_pos = self.ginvaders.sprites()[rand].rect.x
+                    y_pos = self.ginvaders.sprites()[rand].rect.y
+                    last_invader_bullet = InvaderBullet((x_pos, y_pos), (self.WIDE, self.HEIGHT))
+                    self.gbulletinvaders.add(last_invader_bullet)
+                    wait_time = None
+
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
@@ -63,9 +80,12 @@ class SpaceInvaders():
 
             # Colisiones
             cols1 = pygame.sprite.spritecollide(last_bullet, self.ginvaders, True)
+            cols2 = pygame.sprite.spritecollide(last_invader_bullet, self.gplayer, False)
             for invader in cols1:
                 invader.kill()
                 last_bullet.kill()
+            for i in cols2:
+                print('you died')
 
             self.gplayer.update()
             self.gbulletplayer.update()
@@ -77,7 +97,7 @@ class SpaceInvaders():
             self.gbulletinvaders.draw(self.SCREEN)
             self.ginvaders.draw(self.SCREEN)
             pygame.display.flip()
-            clock.tick(120)
+            clock.tick(60)
 
 
     def __play_menu(self):
