@@ -64,6 +64,8 @@ class SpaceInvaders():
 
         # Game
         while not self.END:
+            if len(ginvaders.sprites()) == 0:
+                return self.__you_win()
             if wait_time == None:
                 wait_time = random.uniform(0.5, 2)
                 start = pygame.time.get_ticks()
@@ -121,6 +123,18 @@ class SpaceInvaders():
         self.SCREEN.fill(Colors.BLACK)
         font = pygame.font.Font(None, 36)
         text = font.render("Perdiste", 1, Colors.RED)
+        textpos = text.get_rect(centerx = self.WIDE/2)
+        textpos.y = self.HEIGHT/2
+        self.SCREEN.blit(text, textpos)
+        pygame.display.flip()
+        time.sleep(2)
+        self.END = False
+        return self.__play_menu()
+
+    def __you_win(self):
+        self.SCREEN.fill(Colors.BLACK)
+        font = pygame.font.Font(None, 36)
+        text = font.render("¡Ganaste!", 1, Colors.GREEN)
         textpos = text.get_rect(centerx = self.WIDE/2)
         textpos.y = self.HEIGHT/2
         self.SCREEN.blit(text, textpos)
