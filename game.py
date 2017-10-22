@@ -27,82 +27,91 @@ class SpaceInvaders():
         self.__play_menu()
 
     def __play_game(self):
-        self.glives = pygame.sprite.Group()
-        self.gplayer = pygame.sprite.Group()
-        self.ginvaders = pygame.sprite.Group()
-        self.gbulletplayer = pygame.sprite.Group()
-        self.gbulletinvaders = pygame.sprite.Group()
+        # Groups
+        glives = pygame.sprite.Group()
+        gplayer = pygame.sprite.Group()
+        ginvaders = pygame.sprite.Group()
+        gbulletplayer = pygame.sprite.Group()
+        gbulletinvaders = pygame.sprite.Group()
 
-        self.player = Player(20, 10, self.WIDE)
-        self.gplayer.add(self.player)
+        #Player
+        player = Player(20, 10, self.WIDE)
+        gplayer.add(player)
+        player.rect.x = 100
+        player.rect.y = 500
+
+        # Lives
         pos_a = 50
         for y in range(3):
-            self.glives.add(Heart((pos_a, self.HEIGHT - (self.HEIGHT * 0.07))))
+            glives.add(Heart((pos_a, self.HEIGHT - (self.HEIGHT * 0.07))))
             pos_a += 50
+
+        # Invaders
         pos_b = (10, 100)
         for i in range(10):
             pos_b = (pos_b[0]+60, pos_b[1])
             invader = Invader(pos_b, 4)
-            self.ginvaders.add(invader)
-        self.player.rect.x = 100
-        self.player.rect.y = 500
-        clock = pygame.time.Clock()
+            ginvaders.add(invader)
+
+        # Bullets
         last_bullet = PlayerBullet((self.WIDE, self.HEIGHT), (self.WIDE, self.HEIGHT))
         last_invader_bullet = InvaderBullet((self.WIDE, self.HEIGHT), (self.WIDE, self.HEIGHT))
+
+        # Aux vars
+        clock = pygame.time.Clock()
         wait_time = None
         start = None
+
+        # Game
         while not self.END:
             if wait_time == None:
                 wait_time = random.uniform(0.5, 2)
                 start = pygame.time.get_ticks()
             elapsed_time = (pygame.time.get_ticks()-start)/1000
             if elapsed_time > wait_time:
-                if len(self.ginvaders.sprites()) > 0:
-                    rand = random.randint(0, len(self.ginvaders.sprites()) -1)
-                    x_pos = self.ginvaders.sprites()[rand].rect.x
-                    y_pos = self.ginvaders.sprites()[rand].rect.y
+                if len(ginvaders.sprites()) > 0:
+                    rand = random.randint(0, len(ginvaders.sprites()) -1)
+                    x_pos = ginvaders.sprites()[rand].rect.x
+                    y_pos = ginvaders.sprites()[rand].rect.y
                     last_invader_bullet = InvaderBullet((x_pos, y_pos), (self.WIDE, self.HEIGHT))
-                    self.gbulletinvaders.add(last_invader_bullet)
+                    gbulletinvaders.add(last_invader_bullet)
                     wait_time = None
 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
-                        self.player.move_right(2)
+                        player.move_right(2)
                     if event.key == pygame.K_LEFT:
-                        self.player.move_left(2)
+                        player.move_left(2)
                     if event.key == pygame.K_SPACE:
-                        pos = (self.player.rect.x, self.player.rect.y)
+                        pos = (player.rect.x, player.rect.y)
                         last_bullet = PlayerBullet(pos, (self.WIDE, self.HEIGHT))
-                        self.gbulletplayer.add(last_bullet)
+                        gbulletplayer.add(last_bullet)
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT:
-                        self.player.step = 0
+                        player.step = 0
                 if event.type == pygame.QUIT:
                     return;
 
             # Colisiones
-            cols1 = pygame.sprite.groupcollide(self.gbulletplayer, self.ginvaders, False, True).keys()
-            cols2 = pygame.sprite.spritecollide(self.player, self.gbulletinvaders, True)
-            for invader in cols1:
-                invader.kill()
-                last_bullet.kill()
+            pygame.sprite.groupcollide(gbulletplayer, ginvaders, True, True)
 
+            cols2 = pygame.sprite.spritecollide(player, gbulletinvaders, True)
             if len(cols2) > 0:
-                self.glives.sprites()[-1].kill()
-                if len(self.glives.sprites()) == 0:
+                glives.sprites()[-1].kill()
+                if len(glives.sprites()) == 0:
                     self.END = True
 
-            self.gplayer.update()
-            self.gbulletplayer.update()
-            self.gbulletinvaders.update()
-            self.ginvaders.update()
+            gplayer.update()
+            gbulletplayer.update()
+            gbulletinvaders.update()
+            ginvaders.update()
             self.SCREEN.fill(Colors.BLACK)
-            self.glives.draw(self.SCREEN)
-            self.gplayer.draw(self.SCREEN)
-            self.gbulletplayer.draw(self.SCREEN)
-            self.gbulletinvaders.draw(self.SCREEN)
-            self.ginvaders.draw(self.SCREEN)
+            glives.draw(self.SCREEN)
+            gplayer.draw(self.SCREEN)
+            gbulletplayer.draw(self.SCREEN)
+            gbulletinvaders.draw(self.SCREEN)
+            ginvaders.draw(self.SCREEN)
             pygame.draw.line(self.SCREEN, Colors.WHITE, (0, self.HEIGHT - (self.HEIGHT * 0.1)), (self.WIDE, self.HEIGHT - (self.HEIGHT * 0.1))) 
             pygame.display.flip()
             clock.tick(60)
@@ -116,7 +125,7 @@ class SpaceInvaders():
         textpos.y = self.HEIGHT/2
         self.SCREEN.blit(text, textpos)
         pygame.display.flip()
-        time.sleep(3)
+        time.sleep(2)
         self.END = False
         return self.__play_menu()
 
