@@ -1,7 +1,6 @@
 ﻿#! /usr/bin/python3
 
 import pygame
-import os
 from colors import Colors
 
 class Heart(pygame.sprite.Sprite):

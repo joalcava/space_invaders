@@ -122,7 +122,7 @@ class SpaceInvaders():
     def __you_died(self):
         self.SCREEN.fill(Colors.BLACK)
         font = pygame.font.Font(None, 36)
-        text = font.render("Perdiste", 1, Colors.RED)
+        text = font.render("PERDISTE", 1, Colors.RED)
         textpos = text.get_rect(centerx = self.WIDE/2)
         textpos.y = self.HEIGHT/2
         self.SCREEN.blit(text, textpos)
@@ -134,7 +134,7 @@ class SpaceInvaders():
     def __you_win(self):
         self.SCREEN.fill(Colors.BLACK)
         font = pygame.font.Font(None, 36)
-        text = font.render("¡Ganaste!", 1, Colors.GREEN)
+        text = font.render("¡GANASTE!", 1, Colors.GREEN)
         textpos = text.get_rect(centerx = self.WIDE/2)
         textpos.y = self.HEIGHT/2
         self.SCREEN.blit(text, textpos)

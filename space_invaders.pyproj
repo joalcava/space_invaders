@@ -24,6 +24,7 @@
     </Compile>
     <Compile Include="colors.py" />
     <Compile Include="game.py" />
+    <Compile Include="heart.py" />
     <Compile Include="invaders.py" />
     <Compile Include="player.py" />
     <Compile Include="start.py" />
