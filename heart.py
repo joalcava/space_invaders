@@ -3,6 +3,7 @@
 import pygame
 from colors import Colors
 
+
 class Heart(pygame.sprite.Sprite):
     
     def __init__(self, pos):

@@ -3,6 +3,7 @@
 import pygame
 from colors import Colors
 
+
 class InvaderBullet(pygame.sprite.Sprite):
     
     def __init__(self, pos, screen_size):
@@ -20,6 +21,7 @@ class InvaderBullet(pygame.sprite.Sprite):
             self.rect.y += self.speed
         else:
             self.kill()
+
 
 class PlayerBullet(pygame.sprite.Sprite):
 
