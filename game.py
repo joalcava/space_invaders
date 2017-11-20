@@ -90,10 +90,10 @@ class SpaceInvaders():
                     if event.key == pygame.K_SPACE:
                         # Player bullet
                         pos = (player.rect.x, player.rect.y)
-                        #if len(g_bullet_player.sprites()) == 0:
-                        last_player_bullet = PlayerBullet((pos[0]+17, pos[1]), (self.WIDE, self.HEIGHT))
-                        g_bullet_player.add(last_player_bullet)
-                        g_all_sprites.add(last_player_bullet)
+                        if len(g_bullet_player.sprites()) == 0:
+                            last_player_bullet = PlayerBullet((pos[0]+17, pos[1]), (self.WIDE, self.HEIGHT))
+                            g_bullet_player.add(last_player_bullet)
+                            g_all_sprites.add(last_player_bullet)
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT:
                         player.step = 0
@@ -102,11 +102,16 @@ class SpaceInvaders():
 
             # Collisions
             pygame.sprite.groupcollide(g_bullet_player, g_all_invaders, True, True)
+
             has_collide = len(pygame.sprite.spritecollide(player, g_bullet_invaders, True)) > 0
             if has_collide:
                 g_lives.sprites()[-1].kill()
                 if len(g_lives.sprites()) == 0:
                     self.END = True
+
+            has_collide = len(pygame.sprite.spritecollide(player, g_all_invaders, True)) > 0
+            if has_collide:
+                return self.__you_died()
 
             g_all_sprites.update()
             g_all_invaders.update(current_time)

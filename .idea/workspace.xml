@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf53182e-78ad-46eb-b039-a2591916298a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/invaders_group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bullets.py" afterPath="$PROJECT_DIR$/bullets.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/colors.py" afterPath="$PROJECT_DIR$/colors.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game.py" afterPath="$PROJECT_DIR$/game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heart.py" afterPath="$PROJECT_DIR$/heart.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/invaders.py" afterPath="$PROJECT_DIR$/invaders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/player.py" afterPath="$PROJECT_DIR$/player.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/start.py" afterPath="$PROJECT_DIR$/start.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,23 +12,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/space_invaders_utp$start.coverage" NAME="start Coverage Results" MODIFIED="1511184856426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/space_invaders_utp$start.coverage" NAME="start Coverage Results" MODIFIED="1511185306528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="127" column="48" lean-forward="false" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+            <state relative-caret-position="282">
+              <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding>
                 <element signature="e#21#34#0" expanded="true" />
                 <element signature="e#1819#1919#0" expanded="false" />
                 <element signature="e#2034#2554#0" expanded="false" />
-                <element signature="e#3788#3900#0" expanded="false" />
-                <element signature="e#4632#5000#0" expanded="false" />
-                <element signature="e#5472#6371#0" expanded="false" />
-                <element signature="e#6408#7282#0" expanded="false" />
+                <element signature="e#3800#3912#0" expanded="false" />
+                <element signature="e#4601#4771#0" expanded="false" />
+                <element signature="e#4807#5175#0" expanded="false" />
+                <element signature="e#5210#5609#0" expanded="false" />
+                <element signature="e#5647#6546#0" expanded="false" />
+                <element signature="e#6583#7457#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -55,8 +49,8 @@
       <file leaf-file-name="invaders.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/invaders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="255">
+              <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
               <folding>
                 <element signature="e#721#1750#0" expanded="false" />
                 <element signature="e#1968#2133#0" expanded="false" />
@@ -92,10 +86,10 @@
         <option value="$PROJECT_DIR$/heart.py" />
         <option value="$PROJECT_DIR$/bullets.py" />
         <option value="$PROJECT_DIR$/colors.py" />
-        <option value="$PROJECT_DIR$/invaders.py" />
         <option value="$PROJECT_DIR$/player.py" />
         <option value="$PROJECT_DIR$/invaders_group.py" />
         <option value="$PROJECT_DIR$/game.py" />
+        <option value="$PROJECT_DIR$/invaders.py" />
       </list>
     </option>
   </component>
@@ -242,10 +236,12 @@
             <element signature="e#21#34#0" expanded="true" />
             <element signature="e#1819#1919#0" expanded="false" />
             <element signature="e#2034#2554#0" expanded="false" />
-            <element signature="e#3788#3900#0" expanded="false" />
-            <element signature="e#4632#5000#0" expanded="false" />
-            <element signature="e#5472#6371#0" expanded="false" />
-            <element signature="e#6408#7282#0" expanded="false" />
+            <element signature="e#3800#3912#0" expanded="false" />
+            <element signature="e#4601#4771#0" expanded="false" />
+            <element signature="e#4807#5175#0" expanded="false" />
+            <element signature="e#5210#5609#0" expanded="false" />
+            <element signature="e#5647#6546#0" expanded="false" />
+            <element signature="e#6583#7457#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -277,10 +273,12 @@
             <element signature="e#21#34#0" expanded="true" />
             <element signature="e#1819#1919#0" expanded="false" />
             <element signature="e#2034#2554#0" expanded="false" />
-            <element signature="e#3788#3900#0" expanded="false" />
-            <element signature="e#4632#5000#0" expanded="false" />
-            <element signature="e#5472#6371#0" expanded="false" />
-            <element signature="e#6408#7282#0" expanded="false" />
+            <element signature="e#3800#3912#0" expanded="false" />
+            <element signature="e#4601#4771#0" expanded="false" />
+            <element signature="e#4807#5175#0" expanded="false" />
+            <element signature="e#5210#5609#0" expanded="false" />
+            <element signature="e#5647#6546#0" expanded="false" />
+            <element signature="e#6583#7457#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -314,10 +312,12 @@
             <element signature="e#21#34#0" expanded="true" />
             <element signature="e#1819#1919#0" expanded="false" />
             <element signature="e#2034#2554#0" expanded="false" />
-            <element signature="e#3788#3900#0" expanded="false" />
-            <element signature="e#4632#5000#0" expanded="false" />
-            <element signature="e#5472#6371#0" expanded="false" />
-            <element signature="e#6408#7282#0" expanded="false" />
+            <element signature="e#3800#3912#0" expanded="false" />
+            <element signature="e#4601#4771#0" expanded="false" />
+            <element signature="e#4807#5175#0" expanded="false" />
+            <element signature="e#5210#5609#0" expanded="false" />
+            <element signature="e#5647#6546#0" expanded="false" />
+            <element signature="e#6583#7457#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -341,10 +341,12 @@
             <element signature="e#21#34#0" expanded="true" />
             <element signature="e#1819#1919#0" expanded="false" />
             <element signature="e#2034#2554#0" expanded="false" />
-            <element signature="e#3788#3900#0" expanded="false" />
-            <element signature="e#4632#5000#0" expanded="false" />
-            <element signature="e#5472#6371#0" expanded="false" />
-            <element signature="e#6408#7282#0" expanded="false" />
+            <element signature="e#3800#3912#0" expanded="false" />
+            <element signature="e#4601#4771#0" expanded="false" />
+            <element signature="e#4807#5175#0" expanded="false" />
+            <element signature="e#5210#5609#0" expanded="false" />
+            <element signature="e#5647#6546#0" expanded="false" />
+            <element signature="e#6583#7457#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -357,10 +359,12 @@
             <element signature="e#21#34#0" expanded="true" />
             <element signature="e#1819#1919#0" expanded="false" />
             <element signature="e#2034#2554#0" expanded="false" />
-            <element signature="e#3788#3900#0" expanded="false" />
-            <element signature="e#4632#5000#0" expanded="false" />
-            <element signature="e#5472#6371#0" expanded="false" />
-            <element signature="e#6408#7282#0" expanded="false" />
+            <element signature="e#3800#3912#0" expanded="false" />
+            <element signature="e#4601#4771#0" expanded="false" />
+            <element signature="e#4807#5175#0" expanded="false" />
+            <element signature="e#5210#5609#0" expanded="false" />
+            <element signature="e#5647#6546#0" expanded="false" />
+            <element signature="e#6583#7457#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -404,17 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/invaders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="e#721#1750#0" expanded="false" />
-            <element signature="e#1968#2133#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/invaders_group.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -423,18 +416,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/invaders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+          <folding>
+            <element signature="e#721#1750#0" expanded="false" />
+            <element signature="e#1968#2133#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="127" column="48" lean-forward="false" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+        <state relative-caret-position="282">
+          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="e#21#34#0" expanded="true" />
             <element signature="e#1819#1919#0" expanded="false" />
             <element signature="e#2034#2554#0" expanded="false" />
-            <element signature="e#3788#3900#0" expanded="false" />
-            <element signature="e#4632#5000#0" expanded="false" />
-            <element signature="e#5472#6371#0" expanded="false" />
-            <element signature="e#6408#7282#0" expanded="false" />
+            <element signature="e#3800#3912#0" expanded="false" />
+            <element signature="e#4601#4771#0" expanded="false" />
+            <element signature="e#4807#5175#0" expanded="false" />
+            <element signature="e#5210#5609#0" expanded="false" />
+            <element signature="e#5647#6546#0" expanded="false" />
+            <element signature="e#6583#7457#0" expanded="false" />
           </folding>
         </state>
       </provider>
