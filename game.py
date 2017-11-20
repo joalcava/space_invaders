@@ -12,6 +12,7 @@ from bullets import InvaderBullet, PlayerBullet
 from heart import Heart
 from invaders import Invader
 from invaders_group import InvadersGroup
+from block import Blocker
 
 
 class SpaceInvaders():
@@ -27,6 +28,10 @@ class SpaceInvaders():
         self.SCREEN.fill(Colors.BLACK)
         self.level = 1
         self.bullet_cadence = 2
+        self.sounds = {}
+        for sound_name in ["shoot", "invaderkilled", "playerexplosion"]:
+            self.sounds[sound_name] = pygame.mixer.Sound("sounds/{}.wav".format(sound_name))
+            self.sounds[sound_name].set_volume(0.2)
 
     def start(self):
         self.__play_menu()
@@ -39,6 +44,8 @@ class SpaceInvaders():
         g_bullet_player = pygame.sprite.Group()
         g_bullet_invaders = pygame.sprite.Group()
         g_all_sprites = pygame.sprite.Group()
+        g_blockers = pygame.sprite.Group()
+
 
         # Player
         player = Player(self.WIDE)
@@ -52,6 +59,10 @@ class SpaceInvaders():
         g_lives.add(Heart((150, self.HEIGHT - (self.HEIGHT * 0.07))))
         g_all_sprites.add(g_lives.sprites())
 
+        # Blockers
+        all_blockers = pygame.sprite.Group(
+            self.make_blockers(0), self.make_blockers(1), self.make_blockers(2), self.make_blockers(3))
+        g_all_sprites.add(all_blockers)
         # Aux vars
         clock = pygame.time.Clock()
         wait_time = None
@@ -92,6 +103,7 @@ class SpaceInvaders():
                         pos = (player.rect.x, player.rect.y)
                         if len(g_bullet_player.sprites()) == 0:
                             last_player_bullet = PlayerBullet((pos[0]+17, pos[1]), (self.WIDE, self.HEIGHT))
+                            self.sounds["shoot"].play()
                             g_bullet_player.add(last_player_bullet)
                             g_all_sprites.add(last_player_bullet)
                 if event.type == pygame.KEYUP:
@@ -101,10 +113,13 @@ class SpaceInvaders():
                     return
 
             # Collisions
-            pygame.sprite.groupcollide(g_bullet_player, g_all_invaders, True, True)
+            has_collide = len(pygame.sprite.groupcollide(g_bullet_player, g_all_invaders, True, True)) > 0
+            if has_collide:
+                self.sounds["invaderkilled"].play()
 
             has_collide = len(pygame.sprite.spritecollide(player, g_bullet_invaders, True)) > 0
             if has_collide:
+                self.sounds["playerexplosion"].play()
                 g_lives.sprites()[-1].kill()
                 if len(g_lives.sprites()) == 0:
                     self.END = True
@@ -112,6 +127,10 @@ class SpaceInvaders():
             has_collide = len(pygame.sprite.spritecollide(player, g_all_invaders, True)) > 0
             if has_collide:
                 return self.__you_died()
+
+            pygame.sprite.groupcollide(g_bullet_player, all_blockers, True, True)
+            pygame.sprite.groupcollide(g_bullet_invaders, all_blockers, True, True)
+            pygame.sprite.groupcollide(g_all_invaders, all_blockers, False, True)
 
             g_all_sprites.update()
             g_all_invaders.update(current_time)
@@ -202,3 +221,13 @@ class SpaceInvaders():
             self.SCREEN.blit(text2, textpos2)
             pygame.display.flip()
             clock.tick(60)
+
+    def make_blockers(self, number):
+        g_blockers = pygame.sprite.Group()
+        for row in range(4):
+            for column in range(9):
+                blocker = Blocker(10, Colors.GREEN, row, column)
+                blocker.rect.x = 50 + (200 * number) + (column * blocker.width)
+                blocker.rect.y = 450 + (row * blocker.height)
+                g_blockers.add(blocker)
+        return g_blockers
